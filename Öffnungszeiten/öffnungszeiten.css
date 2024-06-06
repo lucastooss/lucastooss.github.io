@@ -2,6 +2,8 @@ body{
     padding: 0;
     margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: whitesmoke;
+    height: 100%;
 }
 
 html{
@@ -60,11 +62,17 @@ footer a{
     padding-left: 20px;
 }
 
+.navbar{
+    background: white;
+    padding: 10px;
+    margin: 10px;
+}
+
 section {
     padding-top: 30px;
 }
 
-section h1{
+section h1, section h2{
     background: grey;
     display: flex;
     flex-direction: column;
@@ -77,6 +85,7 @@ section h1{
 }
 
 .container {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,20 +103,50 @@ section h1{
     color: white;
 }
 
-.navbar{
-    background: white;
-    padding: 10px;
-    margin: 10px;
+.container ul li a{
+    color: greenyellow;
+    font-family: "Arial Black";
+}
+.container img {
+    margin: 60px;
+}
+
+h3{
+    font-size: xx-small;
 }
 
 @media (max-width: 650px) {
-    header {
-        display: none;
+    .container {
+        display: block;
+        justify-content: center;
+        align-items: center;
     }
 
-    div img{
-        height: 80%;
-        width: 80%;
+    .container ul {
+        list-style: none;
+        margin: 40px;
+        padding: 50px;
+        background: blue;
+        border-radius: 10px;
+
+    }
+
+    .container ul li {
+        padding: 10px;
+        color: white;
+    }
+
+    .container ul li a{
+        color: greenyellow;
+        font-family: "Arial Black";
+    }
+
+    .container img {
+        margin: 60px;
+    }
+
+    header {
+        display: none;
     }
 
     nav {
