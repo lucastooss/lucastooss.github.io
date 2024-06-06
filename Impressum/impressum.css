@@ -1,0 +1,147 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: whitesmoke;
+    height: 100%;
+}
+
+html{
+    height: 100%;
+}
+
+nav{
+    display: none;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul img{
+    padding-right: 100px;
+}
+
+header ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+header ul li{
+    padding: 10px;
+}
+
+header{
+    position: sticky;
+    top: 0;
+    background: grey;
+    padding: 16px;
+}
+
+footer{
+    background: grey;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+    font-size: 75%;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.navbar{
+    background: white;
+    padding: 10px;
+    margin: 10px;
+}
+
+@media (max-height: 500px) {
+    footer{
+        background: grey;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+}
+@media (max-width: 650px) {
+    header {
+        display: none;
+    }
+
+    footer{
+        background: grey;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        height: 85px;
+        background-color: white;
+        display: block;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.11);
+        position: sticky;
+        top: 0px;
+        z-index: 1000;
+    }
+
+    .center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul img {
+        float: right;
+        padding: 30px;
+    }
+
+    nav ul li {
+        list-style: none;
+        position: relative;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+    }
+
+    nav ul li a:hover {
+        display: block;
+        background-color: #ebebeb;
+    }
+
+    nav ul ul {
+        display: none;
+        position: absolute;
+        top: 85px;
+        left: 0;
+        width: 100%;
+        background-color: red;
+        transition: all 0.3s ease;
+    }
+
+    nav ul ul li{
+        margin: 13px;
+    }
+
+    nav ul:hover ul {
+        display: block;
+        position: absolute;
+        background-color: grey;
+    }
+}

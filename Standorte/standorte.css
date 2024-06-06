@@ -48,7 +48,7 @@ header{
 
 footer{
     background: grey;
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }
@@ -76,8 +76,9 @@ section h1, section h2{
 }
 
 .container {
+
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 .container ul {
@@ -105,7 +106,52 @@ h3{
     font-size: xx-small;
 }
 
+@media (max-height: 1160px) {
+    footer{
+        background: grey;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+}
+
 @media (max-width: 650px) {
+    .container {
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container ul {
+        list-style: none;
+        margin: 40px;
+        padding: 50px;
+        background: blue;
+        border-radius: 10px;
+
+    }
+
+    .container ul li {
+        padding: 10px;
+        color: white;
+    }
+
+    .container ul li a{
+        color: greenyellow;
+        font-family: "Arial Black";
+    }
+
+    .container img {
+        margin: 60px;
+    }
+
+    footer{
+        background: grey;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
     header {
         display: none;
     }

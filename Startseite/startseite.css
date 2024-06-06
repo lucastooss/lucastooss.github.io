@@ -75,6 +75,14 @@ footer{
    width: 100%;
 }
 
+footer a{
+   text-decoration: none;
+   color: black;
+   font-size: 75%;
+   font-weight: bold;
+   padding-left: 20px;
+}
+
 .navbar{
    background: white;
    padding: 10px;
@@ -91,6 +99,15 @@ b{
    color: black;
    font-weight: bold;
    font-size: xx-large;
+}
+
+@media (max-height: 500px) {
+   footer{
+      background: grey;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+   }
 }
 
 @media (max-width: 650px) {
