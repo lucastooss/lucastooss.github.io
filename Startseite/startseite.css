@@ -50,14 +50,24 @@ h1{
    padding: 10px;
 }
 
-.light{
+.lightZürich{
    transition: all 0.3s ease;
 }
 
-.light img:hover{
+.lightZürich img:hover{
    box-shadow: 0 0 10px 5px lightblue;
    transform: scale(1.05);
-   /*content: url('/Pictures/ZürichOnHover.png');*/
+   content: url('/Pictures/Zürich_Vorschau.png');
+}
+
+.lightDietikon{
+   transition: all 0.3s ease;
+}
+
+.lightDietikon img:hover{
+   box-shadow: 0 0 10px 5px lightblue;
+   transform: scale(1.05);
+   content: url('/Pictures/Dietikon_Vorschau.jpeg');
 }
 
 .zurich{
@@ -69,6 +79,7 @@ h2{
 }
 
 footer{
+   font-size: 100%;
    background: grey;
    position: absolute;
    bottom: 0;

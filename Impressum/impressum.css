@@ -2,8 +2,6 @@ body{
     padding: 0;
     margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: whitesmoke;
-    height: 100%;
 }
 
 html{
@@ -47,8 +45,9 @@ header{
 }
 
 footer{
+    font-size: 50%;
     background: grey;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -56,9 +55,44 @@ footer{
 footer a{
     text-decoration: none;
     color: black;
-    font-size: 75%;
+    font-size: 200%;
     font-weight: bold;
     padding-left: 20px;
+}
+
+section {
+    padding-top: 30px;
+}
+
+section h1{
+    background: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container ul {
+    list-style: none;
+    margin: 40px;
+    padding: 50px;
+    background: blue;
+    border-radius: 10px;
+
+}
+.container ul li {
+    padding: 10px;
+    color: white;
 }
 
 .navbar{
@@ -67,24 +101,14 @@ footer a{
     margin: 10px;
 }
 
-@media (max-height: 500px) {
-    footer{
-        background: grey;
-        position: relative;
-        bottom: 0;
-        width: 100%;
-    }
-}
 @media (max-width: 650px) {
     header {
         display: none;
     }
 
-    footer{
-        background: grey;
-        position: relative;
-        bottom: 0;
-        width: 100%;
+    div img{
+        height: 80%;
+        width: 80%;
     }
 
     nav {
