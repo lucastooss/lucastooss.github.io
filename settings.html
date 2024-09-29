@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einstellungen</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="settings.html" class="active">Einstellungen</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="settings-section">
+        <h2>Schriftgröße</h2>
+        <div class="font-size-control">
+            <button class="decrease-font">−</button>
+            <span>Schriftgröße</span>
+            <button class="increase-font">+</button>
+        </div>
+
+        <h2>Farbkontrastmodus</h2>
+        <div class="color-contrast-control">
+            <span>Farbkontrastmodus</span>
+            <select>
+                <option value="off">Aus</option>
+                <option value="on">An</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- Vorlese-Button hinzugefügt -->
+    <section class="read-aloud-section">
+        <button >🔊</button>
+    </section>
+</main>
+
+<footer>
+    <p>© 2024 Lernplattform</p>
+</footer>
+
+<script>
+    // Schriftgrößen-Steuerung
+    let fontSize = 16;
+    const body = document.body;
+
+    document.querySelector('.increase-font').addEventListener('click', () => {
+        fontSize += 2;
+        body.style.fontSize = fontSize + 'px';
+    });
+
+    document.querySelector('.decrease-font').addEventListener('click', () => {
+        fontSize = Math.max(10, fontSize - 2);
+        body.style.fontSize = fontSize + 'px';
+    });
+</script>
+</body>
+</html>
