@@ -1,0 +1,74 @@
+/* Erlaubt sanftes Scrollen zu den IDs */
+html {
+    scroll-behavior: smooth;
+}
+
+.legal-page {
+    background-color: #ffffff; /* Rein weißer Hintergrund */
+    padding: 80px 20px;
+}
+
+.legal-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.legal-title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.legal-grid {
+    display: flex;
+    flex-direction: column; /* Stapelt die großen Text-Container untereinander */
+    gap: 40px;
+}
+
+.legal-card {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 12px;
+    border: 1px solid #eeeeee; /* Leichter Rand zur Abgrenzung */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03); /* Sehr dezenter Schatten */
+    scroll-margin-top: 100px; /* Puffer für den Sticky Header beim Springen */
+}
+
+.legal-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.legal-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #333;
+}
+
+.legal-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid rgb(254, 249, 243); /* Dezenter Akzent in deiner Markenfarbe */
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.legal-content-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* Mobile Optimierung */
+@media (max-width: 768px) {
+    .legal-card {
+        padding: 30px 20px;
+    }
+    
+    .legal-title {
+        font-size: 2rem;
+    }
+}

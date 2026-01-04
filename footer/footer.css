@@ -1,0 +1,127 @@
+/* Grundlegende Zurücksetzung und Schriftart */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', Arial, sans-serif; 
+}
+
+.footerContainer {
+    width: 100%;
+    background-color: rgb(254, 249, 243);
+    position: relative; /* Korrekt auf relative gesetzt */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 40px 0 20px 0; 
+    color: #333; 
+    border-top: 1px solid #ddd;
+    flex-shrink: 0; /* Stellt sicher, dass der Footer nicht zusammengedrückt wird */
+}
+
+/* Container für die drei Spalten */
+.footer-main-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 90%; 
+    max-width: 1200px; 
+    padding-bottom: 20px; 
+}
+
+.footer-col {
+    flex-basis: 30%;
+    padding: 0 10px; 
+}
+
+.branding-text { text-align: left; }
+.contactContainer { text-align: right; }
+
+.logoContainerFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 40%;
+}
+
+.logoFooter {
+    height: 250px;
+    width: auto; 
+}
+
+.footerSeparator {
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 10px 0; 
+    border-radius: 15px;
+}
+
+.copyright-info {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.rightlinesLinks {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-top: 10px; 
+}
+
+.rightlinesLinks a {
+    margin: 0 15px; 
+    text-decoration: none; 
+    color: inherit; 
+    transition: color 0.3s;
+    font-size: 0.9em;
+}
+
+.rightlinesLinks a:hover { color: #3b02f5; }
+
+/* ================================== */
+/* Responsive Design (Mobile / Tablet) */
+/* ================================== */
+@media (max-width: 768px) {
+    .footerContainer {
+        /* FEHLER BEHOBEN: Von 'fixed' zurück auf 'relative' */
+        position: relative; 
+        padding: 20px 0;
+    }
+
+    .footer-main-content {
+        flex-direction: column;
+        width: 95%;
+    }
+
+    .footer-col, .logoContainerFooter {
+        flex-basis: 100%;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .branding-text, .contactContainer {
+        text-align: center;
+    }
+    
+    .logoFooter {
+        height: 120px;
+    }
+    
+    .contactContainer .mail, .contactContainer .insta {
+        justify-content: center;
+    }
+    
+    .rightlinesLinks {
+        flex-direction: column;
+    }
+
+    .rightlinesLinks a {
+        margin: 5px 0;
+    }
+    
+    .footerSeparator {
+        width: 95%; 
+    }
+} /* Hier fehlte die Klammer */

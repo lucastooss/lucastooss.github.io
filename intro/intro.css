@@ -1,0 +1,71 @@
+/* Globale Struktur für den Sticky Footer */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#header-placeholder {
+    flex-shrink: 0;
+}
+
+.main-content {
+    flex: 1 0 auto; /* Nimmt den restlichen Platz ein und schiebt Footer nach unten */
+}
+
+#footer-placeholder {
+    flex-shrink: 0;
+}
+
+/* Der Preloader-Container */
+.intro-container {
+    position: fixed; /* Fixiert es über allem anderen */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Volle Breite des Viewports */
+    height: 100vh; /* Volle Höhe des Viewports */
+    background-color: rgb(254, 249, 243); /* Hintergrundfarbe des Logos */
+    z-index: 9999; /* Stellt sicher, dass es über allem liegt */
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; /* Vertikal zentrieren */
+    align-items: center; /* Horizontal zentrieren */
+    transition: opacity 0.5s ease; /* Für das sanfte Ausblenden mit JS */
+}
+
+/* Logo-Styling */
+.intro-logo {
+    background-color: transparent; 
+    max-width: 300px; /* Größe des Logos auf dem Bildschirm */
+    height: auto;
+    margin-bottom: 50px; /* Abstand zwischen Logo und Ladebalken */
+}
+
+/* Styling des Ladebalken-Containers */
+.loading-bar-container {
+    width: 250px; 
+    height: 8px; 
+    border: 1px solid #000;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Styling des eigentlichen Ladebalkens */
+.loading-bar {
+    height: 100%;
+    width: 0%; /* Startet bei 0% */
+    background-color: #000; /* Schwarzer Füllbalken */
+    animation: loading 1.5s forwards;
+}
+
+/* Die Animation, die den Ladebalken füllt */
+@keyframes loading {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
