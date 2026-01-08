@@ -1,9 +1,10 @@
+/* Dateiname: lazj/intro/intro.css */
+
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #ffffff;
 }
 
 .site-wrapper {
@@ -12,10 +13,10 @@ html, body {
     min-height: 100vh;
 }
 
-/* Platz für den fixierten Header lassen */
+/* WICHTIG: Erzeugt den Abstand, damit der Inhalt nicht unter dem Header klebt */
 .main-content {
-    flex: 1 0 auto;
-    padding-top: 80px; /* Höhe des Headers */
+    flex: 1 0 auto; 
+    padding-top: 80px; /* Muss der Header-Höhe in header.css entsprechen */
 }
 
 #header-placeholder {
@@ -25,7 +26,11 @@ html, body {
     z-index: 2000;
 }
 
-/* Intro-Container bleibt gleich */
+#footer-placeholder {
+    flex-shrink: 0;
+}
+
+/* Preloader / Intro Animation */
 .intro-container {
     position: fixed;
     top: 0;
@@ -41,15 +46,12 @@ html, body {
     transition: opacity 0.5s ease;
 }
 
-/* Logo-Styling */
 .intro-logo {
-    background-color: transparent; 
-    max-width: 300px; /* Größe des Logos auf dem Bildschirm */
+    max-width: 300px;
     height: auto;
-    margin-bottom: 50px; /* Abstand zwischen Logo und Ladebalken */
+    margin-bottom: 50px;
 }
 
-/* Styling des Ladebalken-Containers */
 .loading-bar-container {
     width: 250px; 
     height: 8px; 
@@ -58,15 +60,13 @@ html, body {
     overflow: hidden;
 }
 
-/* Styling des eigentlichen Ladebalkens */
 .loading-bar {
     height: 100%;
-    width: 0%; /* Startet bei 0% */
-    background-color: #000; /* Schwarzer Füllbalken */
+    width: 0%;
+    background-color: #000;
     animation: loading 1.5s forwards;
 }
 
-/* Die Animation, die den Ladebalken füllt */
 @keyframes loading {
     0% { width: 0%; }
     100% { width: 100%; }

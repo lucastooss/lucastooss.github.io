@@ -1,7 +1,5 @@
-// Dateiname: homeLoader.js
 document.addEventListener('DOMContentLoaded', function() {
     const contentPlaceholder = document.getElementById('content-placeholder');
-
     if (!contentPlaceholder) return;
 
     fetch('../home/home.html')
@@ -12,16 +10,24 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(html => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
-            
-            // Wir greifen uns alles, was im Body der home.html steht
             const newContent = doc.body.innerHTML;
 
             if (newContent) {
                 contentPlaceholder.innerHTML = newContent;
+
+                // --- NEU: Prüfen ob zum Bereich gescrollt werden soll ---
+                if (window.location.hash === '#ueber-uns') {
+                    // Kurze Verzögerung, damit das Bild/Layout fertig gerendert ist
+                    setTimeout(() => {
+                        const target = document.getElementById('ueber-uns');
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }, 100);
+                }
             }
         })
         .catch(error => {
             console.error('Fehler beim Laden:', error);
-            contentPlaceholder.innerHTML = '<p style="padding:100px; text-align:center;">Inhalt konnte nicht geladen werden.</p>';
         });
 });

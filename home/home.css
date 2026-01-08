@@ -1,4 +1,6 @@
-/* Hero Sektion (Bestehend) */
+/* Dateiname: lazj/home/home.css */
+
+/* Hero Sektion */
 .hero-section {
     width: 100%;
     min-height: calc(100vh - 80px);
@@ -23,7 +25,6 @@
     line-height: 1.1;
     color: #1a1a1a;
     margin-bottom: 20px;
-    font-family: 'Poppins', sans-serif;
 }
 
 .hero-title .highlight {
@@ -37,9 +38,9 @@
     color: #666;
     margin-bottom: 40px;
     font-weight: 300;
-    font-family: 'Poppins', sans-serif;
 }
 
+/* Button Design */
 .btn-order {
     display: inline-block;
     padding: 18px 45px;
@@ -52,7 +53,6 @@
     font-weight: 600;
     transition: all 0.3s ease;
     border: 1px solid #1a1a1a;
-    font-family: 'Poppins', sans-serif;
     text-align: center;
 }
 
@@ -84,13 +84,13 @@
 }
 
 .about-container {
-    max-width: 800px; /* Schmaler für bessere Lesbarkeit des Textes */
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .about-card {
     display: flex;
-    flex-direction: column; /* Elemente untereinander */
+    flex-direction: column;
     background: #ffffff;
     border-radius: 12px;
     border: 1px solid #eeeeee;
@@ -98,10 +98,9 @@
     overflow: hidden;
 }
 
-/* Bereich Oben: Inhalt */
 .about-content-wrapper {
     padding: 50px;
-    text-align: center; /* Text zentriert für harmonischen Look */
+    text-align: center;
 }
 
 .about-icon-wrapper {
@@ -118,7 +117,6 @@
 }
 
 .about-card-title {
-    font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 25px;
@@ -129,12 +127,11 @@
 }
 
 .about-content-text p {
-    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     line-height: 1.8;
     color: #444;
     margin-bottom: 20px;
-    text-align: left; /* Text selbst wieder linksbündig für Lesbarkeit */
+    text-align: left;
 }
 
 .about-slogan {
@@ -145,10 +142,9 @@
     padding-top: 20px;
 }
 
-/* Bereich Unten: Bild */
 .about-image-container {
     width: 100%;
-    height: 400px; /* Feste Höhe für das Abschlussbild */
+    height: 400px;
     background-color: rgb(254, 249, 243);
 }
 
@@ -169,6 +165,13 @@
 
     .hero-text { order: 2; }
     .hero-image { order: 1; height: 300px; }
+
+    .hero-title { font-size: 2.2rem; }
+
+    .btn-order {
+        width: 100%;
+        box-sizing: border-box;
+    }
 
     .about-content-wrapper {
         padding: 30px 20px;
