@@ -40,7 +40,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Button Styling Fix */
 .btn-order {
     display: inline-block;
     padding: 18px 45px;
@@ -78,133 +77,90 @@
     box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
-/* --- NEU: About Sektion Styles --- */
-.about-section {
-    padding: 100px 40px;
-    background-color: #ffffff;
-}
-
-.about-container {
-    max-width: 800px; /* Schmaler für bessere Lesbarkeit */
-    margin: 0 auto;
-    text-align: center;
-}
-
-.about-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 40px;
-    letter-spacing: 1px;
-    color: #1a1a1a;
-}
-
-.about-content p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 25px;
-    font-weight: 300;
-}
-
-.about-slogan {
-    margin-top: 40px;
-    font-style: italic;
-    color: #1a1a1a;
-}
-
-/* --- Über LAZJ Sektion (Karten-Design) --- */
+/* --- Über LAZJ Sektion (Vertikales Layout) --- */
 .about-section {
     padding: 80px 20px;
     background-color: #ffffff;
 }
 
 .about-container {
-    max-width: 900px;
+    max-width: 800px; /* Schmaler für bessere Lesbarkeit des Textes */
     margin: 0 auto;
 }
 
 .about-card {
+    display: flex;
+    flex-direction: column; /* Elemente untereinander */
     background: #ffffff;
-    padding: 50px;
     border-radius: 12px;
     border: 1px solid #eeeeee;
     box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-    text-align: center;
+    overflow: hidden;
 }
 
-/* Container für das Logo-Icon */
+/* Bereich Oben: Inhalt */
+.about-content-wrapper {
+    padding: 50px;
+    text-align: center; /* Text zentriert für harmonischen Look */
+}
+
 .about-icon-wrapper {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     margin: 0 auto 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .about-card-logo {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: 50%; /* Macht das Logo rund, falls es quadratisch ist */
-    /* Optional: Ein ganz feiner Rahmen um das Logo */
-    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 50%;
 }
 
 .about-card-title {
     font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
+    font-weight: 600;
     margin-bottom: 25px;
+    color: #1a1a1a;
     border-bottom: 2px solid rgb(254, 249, 243);
     padding-bottom: 10px;
     display: inline-block;
-    color: #1a1a1a;
 }
 
-.about-content-text {
+.about-content-text p {
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     line-height: 1.8;
     color: #444;
-    text-align: left;
-}
-
-.about-content-text p {
     margin-bottom: 20px;
+    text-align: left; /* Text selbst wieder linksbündig für Lesbarkeit */
 }
 
 .about-slogan {
-    margin-top: 30px;
+    margin-top: 25px;
     font-style: italic;
     color: #1a1a1a;
     border-top: 1px solid #eee;
     padding-top: 20px;
 }
 
-/* Mobile Optimierung */
-@media (max-width: 768px) {
-    .about-card {
-        padding: 30px 20px;
-    }
-    
-    .about-card-title {
-        font-size: 1.5rem;
-    }
+/* Bereich Unten: Bild */
+.about-image-container {
+    width: 100%;
+    height: 400px; /* Feste Höhe für das Abschlussbild */
+    background-color: rgb(254, 249, 243);
+}
 
-    .about-icon-wrapper {
-        width: 60px;
-        height: 60px;
-    }
+.about-featured-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* Mobile Optimierung */
 @media (max-width: 900px) {
-    .hero-section {
-        padding: 40px 20px;
-    }
-
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
@@ -214,22 +170,11 @@
     .hero-text { order: 2; }
     .hero-image { order: 1; height: 300px; }
 
-    .hero-title { font-size: 2.2rem; }
-
-    .btn-order {
-        width: 100%;
-        box-sizing: border-box;
+    .about-content-wrapper {
+        padding: 30px 20px;
     }
 
-    .about-section {
-        padding: 60px 20px;
-    }
-
-    .about-title {
-        font-size: 1.6rem;
-    }
-
-    .about-content p {
-        font-size: 1rem;
+    .about-image-container {
+        height: 250px;
     }
 }
