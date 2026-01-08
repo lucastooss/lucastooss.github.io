@@ -13,18 +13,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
             
-            // Sucht gezielt nach der hero-section
-            const newContent = doc.querySelector('.hero-section');
+            // Wir greifen uns alles, was im Body der home.html steht
+            const newContent = doc.body.innerHTML;
 
             if (newContent) {
-                contentPlaceholder.innerHTML = newContent.outerHTML;
-            } else {
-                // Fallback, falls die Struktur anders ist
-                contentPlaceholder.innerHTML = html;
+                contentPlaceholder.innerHTML = newContent;
             }
         })
         .catch(error => {
             console.error('Fehler beim Laden:', error);
-            contentPlaceholder.innerHTML = '<p style="padding:100px; text-align:center;">Inhalt wird geladen...</p>';
+            contentPlaceholder.innerHTML = '<p style="padding:100px; text-align:center;">Inhalt konnte nicht geladen werden.</p>';
         });
 });
