@@ -1,7 +1,4 @@
-// Dateiname: loadFooter.js
-
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Platzhalter-Element finden, in das der Footer geladen werden soll
     const footerPlaceholder = document.getElementById('footer-placeholder');
 
     if (!footerPlaceholder) {
@@ -9,17 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    // 2. Die externe HTML-Datei asynchron laden
     fetch('../footer/footer.html')
         .then(response => {
-            // Sicherstellen, dass die Datei erfolgreich geladen wurde (Status 200)
             if (!response.ok) {
                 throw new Error(`Konnte Footer-Inhalt nicht laden. Status: ${response.status}`);
             }
-            return response.text(); // Inhalt als reinen Text lesen
+            return response.text(); 
         })
         .then(htmlContent => {
-            // 3. Den geladenen HTML-Inhalt in den Platzhalter einfügen
             footerPlaceholder.innerHTML = htmlContent;
         })
         .catch(error => {

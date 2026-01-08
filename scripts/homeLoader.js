@@ -15,9 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (newContent) {
                 contentPlaceholder.innerHTML = newContent;
 
-                // --- NEU: Prüfen ob zum Bereich gescrollt werden soll ---
                 if (window.location.hash === '#ueber-uns') {
-                    // Kurze Verzögerung, damit das Bild/Layout fertig gerendert ist
                     setTimeout(() => {
                         const target = document.getElementById('ueber-uns');
                         if (target) {

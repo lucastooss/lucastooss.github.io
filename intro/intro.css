@@ -1,5 +1,3 @@
-/* Dateiname: lazj/intro/intro.css */
-
 html, body {
     height: 100%;
     margin: 0;
@@ -13,10 +11,9 @@ html, body {
     min-height: 100vh;
 }
 
-/* WICHTIG: Erzeugt den Abstand, damit der Inhalt nicht unter dem Header klebt */
 .main-content {
     flex: 1 0 auto; 
-    padding-top: 80px; /* Muss der Header-Höhe in header.css entsprechen */
+    padding-top: 80px; 
 }
 
 #header-placeholder {
@@ -30,7 +27,6 @@ html, body {
     flex-shrink: 0;
 }
 
-/* Preloader / Intro Animation */
 .intro-container {
     position: fixed;
     top: 0;

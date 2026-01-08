@@ -1,4 +1,3 @@
-/* Erlaubt sanftes Scrollen zu den IDs */
 html {
     scroll-behavior: smooth;
 }
@@ -62,7 +61,6 @@ html {
     color: #444;
 }
 
-/* Spezifisches Styling für das Impressum */
 .impressum-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -120,7 +118,6 @@ html {
     margin-bottom: 0;
 }
 
-/* Mobile Optimierung */
 @media (max-width: 768px) {
     .legal-card {
         padding: 30px 20px;

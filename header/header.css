@@ -1,6 +1,4 @@
-/* Dateiname: lazj/header/header.css */
 
-/* Basis Setup */
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -18,17 +16,16 @@
 }
 
 .header-container {
-    width: 100%;           /* Nutzt die volle Breite des Fensters */
-    max-width: none;       /* Entfernt die 1400px Begrenzung für den Weitwinkel-Zoom */
+    width: 100%;           
+    max-width: none;       
     height: 100%;
     margin: 0;
-    padding: 0 40px;       /* Sicherheitsabstand zu den Rändern */
+    padding: 0 40px;       
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* 1. Linker Bereich (Logo) */
 .header-left {
     flex: 1;
     display: flex;
@@ -36,7 +33,7 @@
 }
 
 .header-logo {
-    height: 60px;
+    height: 60px;         
     width: auto;
     transition: opacity 0.3s ease;
 }
@@ -45,7 +42,6 @@
     opacity: 0.7;
 }
 
-/* 2. Mittlerer Bereich (Navigation Desktop) */
 .nav-menu {
     flex: 2;
     display: flex;
@@ -84,26 +80,15 @@
     transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
     width: 100%;
 }
 
-/* Markierung für die aktuelle Seite (Active State) */
 .nav-link.active {
     font-weight: 600 !important;
-    color: #1a1a1a !important;
 }
 
-.nav-link.active::after {
-    width: 100% !important; /* Unterstreichung bleibt stehen */
-}
-
-/* Versteckt den mobilen Button standardmäßig im Desktop-Menü */
-.nav-menu .mobile-only {
-    display: none;
-}
-
-/* 3. Rechter Bereich (Actions) */
 .header-right {
     flex: 1;
     display: flex;
@@ -112,7 +97,6 @@
     gap: 25px;
 }
 
-/* Bestellen Button Styling */
 .btn-header-order {
     text-decoration: none;
     color: #1a1a1a;
@@ -132,12 +116,12 @@
     color: #fff;
 }
 
-/* Warenkorb Icon */
-.cart-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
+.mobile-only {
+    display: none !important; 
+}
+
+.desktop-only {
+    display: inline-block;
 }
 
 .cart-icon svg {
@@ -145,24 +129,13 @@
     height: 24px;
     fill: #1a1a1a;
     display: block;
-    margin-top: 2px;
 }
 
-.cart-icon:hover svg {
-    transform: scale(1.1);
-}
-
-/* Mobile Menü Button (Hamburger) */
 .menu-toggle {
     display: none;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-    justify-content: center;
-    height: 24px;
     z-index: 2100;
 }
 
@@ -174,8 +147,7 @@
     position: relative;
 }
 
-.hamburger::before,
-.hamburger::after {
+.hamburger::before, .hamburger::after {
     content: '';
     position: absolute;
     width: 25px;
@@ -188,10 +160,19 @@
 .hamburger::before { top: -8px; }
 .hamburger::after { top: 8px; }
 
-/* Mobile View Anpassungen */
 @media (max-width: 900px) {
     .header-container {
         padding: 0 20px;
+    }
+
+    .header-right .desktop-only {
+        display: none !important;
+    }
+
+    .nav-menu .mobile-only {
+        display: inline-block !important;
+        margin-top: 20px;
+        padding: 15px 40px;
     }
 
     .nav-menu {
@@ -205,8 +186,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 40px;
-        transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        transition: right 0.5s ease;
     }
 
     .nav-menu.is-active {
@@ -223,40 +203,15 @@
         font-size: 1.5rem;
     }
 
-    /* Zeigt den Button im Hamburger-Menü an */
-    .nav-menu .mobile-only {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 15px 40px;
-        font-size: 0.9rem;
-    }
-
     .menu-toggle {
         display: flex;
     }
 
-    /* Versteckt den Button in der Header-Leiste auf Mobile */
-    .header-right .btn-header-order {
-        display: none;
-    }
-
-    /* Animation für das X bei geöffnetem Menü */
-    body.menu-open .hamburger {
-        background: transparent;
-    }
-
-    body.menu-open .hamburger::before {
-        transform: rotate(45deg) translate(5px, 6px);
-    }
-
-    body.menu-open .hamburger::after {
-        transform: rotate(-45deg) translate(5px, -6px);
-    }
+    body.menu-open .hamburger { background: transparent; }
+    body.menu-open .hamburger::before { transform: rotate(45deg) translate(5px, 6px); }
+    body.menu-open .hamburger::after { transform: rotate(-45deg) translate(5px, -6px); }
 }
 
-/* Optimierung für extrem breite Bildschirme */
 @media (min-width: 2000px) {
-    .header-container {
-        padding: 0 60px;
-    }
+    .header-container { padding: 0 60px; }
 }

@@ -15,11 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 menuBtn.addEventListener('click', function() {
                     navMenu.classList.toggle('is-active');
                     
-                    // Verhindert das Scrollen des Hintergrunds
                     body.classList.toggle('menu-open');
                 });
 
-                // Schließt das Menü, wenn ein Link geklickt wird
                 const links = navMenu.querySelectorAll('a');
                 links.forEach(link => {
                     link.addEventListener('click', () => {
