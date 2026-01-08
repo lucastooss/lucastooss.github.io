@@ -1,8 +1,9 @@
-/* Globale Struktur für den Sticky Footer */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
 }
 
 .site-wrapper {
@@ -11,32 +12,33 @@ html, body {
     min-height: 100vh;
 }
 
-#header-placeholder {
-    flex-shrink: 0;
-}
-
+/* Platz für den fixierten Header lassen */
 .main-content {
-    flex: 1 0 auto; /* Nimmt den restlichen Platz ein und schiebt Footer nach unten */
+    flex: 1 0 auto;
+    padding-top: 80px; /* Höhe des Headers */
 }
 
-#footer-placeholder {
-    flex-shrink: 0;
+#header-placeholder {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2000;
 }
 
-/* Der Preloader-Container */
+/* Intro-Container bleibt gleich */
 .intro-container {
-    position: fixed; /* Fixiert es über allem anderen */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* Volle Breite des Viewports */
-    height: 100vh; /* Volle Höhe des Viewports */
-    background-color: rgb(254, 249, 243); /* Hintergrundfarbe des Logos */
-    z-index: 9999; /* Stellt sicher, dass es über allem liegt */
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(254, 249, 243);
+    z-index: 9999;
     display: flex;
     flex-direction: column; 
-    justify-content: center; /* Vertikal zentrieren */
-    align-items: center; /* Horizontal zentrieren */
-    transition: opacity 0.5s ease; /* Für das sanfte Ausblenden mit JS */
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
 }
 
 /* Logo-Styling */
