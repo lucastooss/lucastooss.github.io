@@ -1,22 +1,19 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    
+document.addEventListener('DOMContentLoaded', () => {
     const preloader = document.querySelector('.intro-container');
-    const body = document.body;
-    
-    if (!preloader) return; 
+    if (!preloader) return;
 
-    const animationDuration = 1000; 
-    const delayBeforeFade = 500; 
-    
+    // Sobald die Animation des Ladebalkens (1.5s) fast fertig ist
     setTimeout(() => {
-        preloader.style.opacity = '0';
-        
-        setTimeout(() => {
-            preloader.style.display = 'none';
-            
-            body.style.overflow = 'auto';
-            
-        }, 500); 
-
-    }, animationDuration + delayBeforeFade); 
+        // Wir prüfen, ob wir auf der Startseite sind
+        if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+            // Sofortige Weiterleitung, bevor das Bild ausgeblendet wird
+            window.location.href = 'home/home.html';
+        } else {
+            // Normales Ausblenden auf anderen Seiten
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }
+    }, 1600); // 1.5s Animation + 100ms Puffer
 });

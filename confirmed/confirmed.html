@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestätigung - Defined by LAZJ</title>
+    <link rel="stylesheet" href="../intro/intro.css"> 
+    <link rel="stylesheet" href="legal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .confirmation-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            min-height: 60vh;
+        }
+
+        .confirmation-card {
+            background: #ffffff;
+            max-width: 500px;
+            width: 100%;
+            padding: 50px;
+            border-radius: 12px;
+            border: 1px solid #eeeeee;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .status-icon-container {
+            width: 60px; /* Kleinere, dezentere Größe */
+            height: 60px;
+            background-color: rgb(254, 249, 243);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+        }
+
+        .status-icon {
+            width: 30px;
+            height: 30px;
+            fill: #1a1a1a;
+        }
+
+        .confirmation-card h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .confirmation-card p {
+            font-family: 'Poppins', sans-serif;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        .btn-return {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: #1a1a1a;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid #1a1a1a;
+        }
+
+        .btn-return:hover {
+            background-color: transparent;
+            color: #1a1a1a !important;
+        }
+    </style>
+</head>
+<body class="site-wrapper">
+
+    <div id="header-placeholder"></div>
+
+    <main class="main-content">
+        <section class="confirmation-wrapper">
+            <div class="confirmation-card">
+                <div class="status-icon-container">
+                    <svg class="status-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>
+                    </svg>
+                </div>
+                <h2>Nachricht gesendet</h2>
+                <p>Vielen Dank für Ihre Anfrage. Wir haben Ihre Nachricht erhalten und werden uns in Kürze bei Ihnen melden.</p>
+                <a href="../home/home.html" class="btn-return">Zurück zur Startseite</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/loadHeader.js"></script>
+    <script src="../scripts/loadFooter.js"></script>
+</body>
+</html>

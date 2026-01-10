@@ -19,7 +19,6 @@
     flex: 1;
 }
 
-
 .brand-slogan {
     font-size: 1.8rem;
     font-weight: 300;
@@ -32,12 +31,6 @@
     letter-spacing: 1px;
     display: block;
     margin-top: 5px;
-}
-
-.brand-subtext {
-    font-size: 0.9rem;
-    color: #888;
-    font-weight: 300;
 }
 
 .logo-center {
