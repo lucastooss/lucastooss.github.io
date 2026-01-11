@@ -84,13 +84,19 @@ async function startStripeCheckout() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     if (cart.length === 0) return alert("Warenkorb leer!");
 
+  
+    const itemsWithShipping = [...cart, {
+        id: 'price_1SoOm0IDfb6h5bqJje5fgPUm', 
+        quantity: 1
+    }];
+
     try {
         const response = await fetch('https://lucastooss-github-io.onrender.com/create-checkout-session', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ items: cart }),
+            body: JSON.stringify({ items: itemsWithShipping }),
         });
 
         const session = await response.json();
@@ -102,6 +108,6 @@ async function startStripeCheckout() {
         }
     } catch (error) {
         console.error("Fehler:", error);
-        alert("Server nicht erreichbar. Hast du 'node server.js' gestartet?");
+        alert("Server nicht erreichbar.");
     }
 }
