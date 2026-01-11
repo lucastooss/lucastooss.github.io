@@ -1,11 +1,8 @@
-// Initialisierung mit deinem Stripe Test-Key
 const stripe = Stripe('pk_test_51SoAsyIDfb6h5bqJKi8CCMimTIRafCflthIm6UVS6o7TNF97yLtt14aBkHFUE3htT0LQq3SnPuiDQEjaHxRlXRDi00VcigeJek');
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Warenkorb beim Laden der Seite anzeigen
     renderCart(); 
     
-    // Checkout-Button finden und Event verknüpfen
     const checkoutBtn = document.querySelector('.btn-checkout');
     if (checkoutBtn) {
         checkoutBtn.onclick = () => {
@@ -73,7 +70,6 @@ function removeItem(index) {
 }
 
 function updateTotals(subtotal) {
-    // Versandkosten pauschal CHF 10.00 laut shopcart.html
     const shipping = subtotal > 0 ? 10.00 : 0;
     const total = subtotal + shipping;
     
@@ -84,16 +80,12 @@ function updateTotals(subtotal) {
     if (grandTotalElement) grandTotalElement.innerText = `CHF ${total.toFixed(2)}`;
 }
 
-/**
- * Erstellt eine Checkout-Session direkt im Browser (Client-only).
- * Erfordert die Aktivierung der "Client-only integration" im Stripe Dashboard!
- */
 async function startStripeCheckout() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     if (cart.length === 0) return alert("Warenkorb leer!");
 
     try {
-        const response = await fetch('http://localhost:3000/create-checkout-session', {
+        const response = await fetch('https://lucastooss-github-io.onrender.com/create-checkout-session', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -104,7 +96,7 @@ async function startStripeCheckout() {
         const session = await response.json();
         
         if (session.url) {
-            window.location.href = session.url; // Weiterleitung zum Stripe-gehosteten Checkout
+            window.location.href = session.url; 
         } else {
             alert("Fehler beim Erstellen der Session.");
         }

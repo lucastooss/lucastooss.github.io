@@ -17,8 +17,8 @@ app.post('/create-checkout-session', async (req, res) => {
             })),
             mode: 'payment',
             billing_address_collection: 'required',
-            success_url: 'https://lazj.ch/confirmed/confirmed.html',
-            cancel_url: 'https://lazj.ch/shopcart/shopcart.html',
+            success_url: 'https://lucastooss.github.io/confirmed/confirmed.html',
+            cancel_url: 'https://lucastooss.github.io/shopcart/shopcart.html',
         });
         res.json({ url: session.url });
     } catch (e) {
