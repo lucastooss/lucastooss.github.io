@@ -1,4 +1,4 @@
-// Initialisierung mit deinem Test-Key
+// Initialisierung mit deinem Stripe Test-Key
 const stripe = Stripe('pk_test_51SoAsyIDfb6h5bqJKi8CCMimTIRafCflthIm6UVS6o7TNF97yLtt14aBkHFUE3htT0LQq3SnPuiDQEjaHxRlXRDi00VcigeJek');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -73,43 +73,43 @@ function removeItem(index) {
 }
 
 function updateTotals(subtotal) {
+    // Versandkosten pauschal CHF 10.00 laut shopcart.html
     const shipping = subtotal > 0 ? 10.00 : 0;
     const total = subtotal + shipping;
-    document.getElementById('subtotal').innerText = `CHF ${subtotal.toFixed(2)}`;
-    document.getElementById('grand-total').innerText = `CHF ${total.toFixed(2)}`;
+    
+    const subtotalElement = document.getElementById('subtotal');
+    const grandTotalElement = document.getElementById('grand-total');
+    
+    if (subtotalElement) subtotalElement.innerText = `CHF ${subtotal.toFixed(2)}`;
+    if (grandTotalElement) grandTotalElement.innerText = `CHF ${total.toFixed(2)}`;
 }
 
 /**
- * Erstellt eine Checkout-Session direkt im Browser.
- * Damit dies funktioniert, muss "Client-only integration" im Stripe Dashboard aktiviert sein!
+ * Erstellt eine Checkout-Session direkt im Browser (Client-only).
+ * Erfordert die Aktivierung der "Client-only integration" im Stripe Dashboard!
  */
 async function startStripeCheckout() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    if (cart.length === 0) return alert("Dein Warenkorb ist leer!");
+    if (cart.length === 0) return alert("Warenkorb leer!");
 
-    // Wir bauen die Liste der Produkte für Stripe zusammen
-    const lineItems = cart.map(item => {
-        return {
-            price: item.id, // Das ist die Price-ID (z.B. price_1SoO...)
-            quantity: item.quantity
-        };
-    });
+    try {
+        const response = await fetch('http://localhost:3000/create-checkout-session', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ items: cart }),
+        });
 
-    // Wir fügen die Versandkosten (CHF 10.00) hinzu
-    // Falls du in Stripe bereits ein Versand-Objekt angelegt hast, nutze dessen Price-ID.
-    // Falls nicht, kannst du hier die Weiterleitung starten:
-
-    const { error } = await stripe.redirectToCheckout({
-        lineItems: lineItems,
-        mode: 'payment',
-        // ACHTUNG: Passe diese URLs an, wenn deine Seite online ist
-        successUrl: window.location.origin + '/confirmed/confirmed.html',
-        cancelUrl: window.location.origin + '/shopcart/shopcart.html',
-        billingAddressCollection: 'required', // Fragt nach der Rechnungsadresse
-    });
-
-    if (error) {
-        console.error("Stripe Fehler:", error);
-        alert("Es gab ein Problem beim Starten des Bezahlvorgangs: " + error.message);
+        const session = await response.json();
+        
+        if (session.url) {
+            window.location.href = session.url; // Weiterleitung zum Stripe-gehosteten Checkout
+        } else {
+            alert("Fehler beim Erstellen der Session.");
+        }
+    } catch (error) {
+        console.error("Fehler:", error);
+        alert("Server nicht erreichbar. Hast du 'node server.js' gestartet?");
     }
 }
