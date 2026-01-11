@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkt - Defined by LAZJ</title>
+    <link rel="stylesheet" href="../intro/intro.css">
+    <link rel="stylesheet" href="product.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="site-wrapper">
+    <div id="header-placeholder"></div>
+
+    <main class="main-content">
+        <section class="product-container">
+            <div class="product-card">
+                <div class="product-image-slider">
+                    <button class="slider-arrow prev" onclick="changeSlide(-1)" aria-label="Vorheriges Bild">&#10094;</button>
+                    
+                    <div class="slides-container">
+                        <img src="../img/produkt.jpeg" class="product-slide active" alt="LAZJ Bag">
+                        <img src="../img/produktSpiegel.jpeg" class="product-slide" alt="LAZJ Bag Innenansicht mit Spiegel">
+                    </div>
+                    
+                    <button class="slider-arrow next" onclick="changeSlide(1)" aria-label="Nächstes Bild">&#10095;</button>
+                    
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="currentSlide(0)"></span>
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                    </div>
+                </div>
+                
+                <div class="product-details">
+                    <span class="product-category">Necessaire</span>
+                    <h1 class="product-title">LAZJ Bag</h1>
+                    <p class="product-price">CHF 29.00</p>
+                    
+                    <div class="product-selection">
+                        <label>Farbe wählen:</label>
+                        <div class="color-options">
+                            <label class="color-radio">
+                                <input type="radio" name="color" value="Weiss" checked>
+                                <span class="checkmark white"></span> Weiss
+                            </label>
+                            <label class="color-radio">
+                                <input type="radio" name="color" value="Braun">
+                                <span class="checkmark brown"></span> Braun
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn-add-to-cart" onclick="addToCart()">In den Warenkorb</button>
+
+                    <div class="product-accordion">
+                        <details>
+                            <summary>Produktbeschreibung</summary>
+                            <div class="accordion-content">
+                                <p>Unser leichtes Necessaire bietet einen praktischen Begleiter für den Tag. Die Grösse ist perfekt bestimmt: genug Stauraum für persönliche Utensilien, trotzdem eine handliche Reisegrösse. Es wird aus recycelten Stoffen von einem Einzelhändler im Kosovo handgefertigt – kein Stoff wird weggeworfen.</p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>Nutzung & Vorteile</summary>
+                            <div class="accordion-content">
+                                <p>Dank der kompakten Grösse eignet sich das Produkt ideal für die Schule, den Alltag oder Reisen. Ein besonderes Merkmal ist der integrierte Spiegel, der zusätzlichen Komfort bietet. Der Spiegel ist stabil integriert und unterstützt die tägliche Nutzung beim Schminken oder für kurze Kontrollblicke.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/loadHeader.js"></script>
+    <script src="../scripts/loadFooter.js"></script>
+
+    <script>
+        // Slider Logik
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.product-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+
+        function showSlide(n) {
+            if (n >= slides.length) slideIndex = 0;
+            if (n < 0) slideIndex = slides.length - 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+        }
+
+        // Warenkorb Logik mit deinen Price-IDs
+        function addToCart() {
+            const color = document.querySelector('input[name="color"]:checked').value;
+            
+            // Deine Stripe Price-IDs
+            let priceId = (color === 'Weiss') 
+                ? 'price_1SoO2oIDfb6h5bqJZY5jUXsm' 
+                : 'price_1SoO2XIDfb6h5bqJ7g0odJr6';
+
+            const product = {
+                id: priceId, // Wir nutzen die Price-ID als eindeutigen Schlüssel
+                name: 'LAZJ Bag',
+                price: 29.00,
+                color: color,
+                quantity: 1,
+                image: '../img/produkt.jpeg' 
+            };
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingIndex = cart.findIndex(item => item.id === product.id);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            window.location.href = '../shopcart/shopcart.html'; 
+        }
+    </script>
+</body>
+</html>

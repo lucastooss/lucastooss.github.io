@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warenkorb - LAZJ</title>
+    <link rel="stylesheet" href="../intro/intro.css">
+    <link rel="stylesheet" href="shopcart.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body class="site-wrapper">
+    <div id="header-placeholder"></div>
+
+    <main class="main-content">
+        <section class="product-container">
+            <h1 class="product-title" style="font-family: 'Poppins', sans-serif; text-align: center; margin-bottom: 40px;">Dein Warenkorb</h1>
+            
+            <div id="cart-items-container">
+                </div>
+
+            <div class="cart-summary-card">
+                <div class="summary-line">
+                    <span>Zwischensumme</span>
+                    <span id="subtotal">CHF 0.00</span>
+                </div>
+                <div class="summary-line">
+                    <span>Versandkosten</span>
+                    <span>CHF 10.00</span>
+                </div>
+                <div class="summary-line total-line">
+                    <span>Gesamttotal</span>
+                    <span id="grand-total">CHF 10.00</span>
+                </div>
+                <button class="btn-checkout">Zur Kasse</button>
+            </div>
+
+            <div class="legal-info-grid">
+                <div class="info-card">
+                    <h3>Lieferbedingungen</h3>
+                    <p>Der Versand erfolgt klimaneutral innerhalb von 3-5 Werktagen. Wir versenden innerhalb der Schweiz für eine Pauschale von CHF 10.00.</p>
+                </div>
+                <div class="info-card">
+                    <h3>AGB</h3>
+                    <p>Mit Ihrer Bestellung akzeptieren Sie unsere allgemeinen Geschäftsbedingungen.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Widerrufsrecht</h3>
+                    <p>Sie können Ihre Bestellung innerhalb von 14 Tagen widerrufen, sofern die Ware unbenutzt ist.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/loadHeader.js"></script>
+    <script src="../scripts/loadFooter.js"></script>
+    <script src="../scripts/cart_logic.js"></script>
+</body>
+</html>

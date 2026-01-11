@@ -1,0 +1,206 @@
+/* lazj/shopcart/shopcart.css */
+
+.product-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.product-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #1a1a1a;
+}
+
+/* --- WARENKORB LISTE --- */
+#cart-items-container {
+    margin-bottom: 50px;
+    min-height: 100px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    transition: background 0.3s ease;
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: rgb(254, 249, 243);
+}
+
+.cart-item-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cart-item-info strong {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+.cart-item-info span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Stückzahl-Kontrolle */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0 30px;
+}
+
+.quantity-controls button {
+    background: #f8f8f8;
+    border: 1px solid #eee;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.quantity-controls button:hover {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.item-total-price {
+    font-weight: 600;
+    min-width: 120px;
+    text-align: right;
+    font-size: 1.1rem;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #ddd;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.remove-btn:hover {
+    color: #ff4d4d;
+}
+
+/* --- ZUSAMMENFASSUNG (Summary Card) --- */
+.cart-summary-card {
+    background: rgb(254, 249, 243);
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 450px;
+    margin-left: auto; /* Schiebt die Card nach rechts */
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.total-line {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 20px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #1a1a1a;
+}
+
+.btn-checkout {
+    width: 100%;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: 1px solid #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+}
+
+.btn-checkout:hover {
+    background-color: transparent;
+    color: #1a1a1a;
+}
+
+/* --- RECHTLICHE CARDS (Bottom Grid) --- */
+.legal-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 100px;
+    margin-bottom: 60px;
+}
+
+.info-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 12px;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+    color: #1a1a1a;
+    border-bottom: 2px solid rgb(254, 249, 243);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.info-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* --- MOBILE ANPASSUNG --- */
+@media (max-width: 900px) {
+    .product-title { font-size: 2rem; }
+    
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .quantity-controls { margin: 20px 0; }
+    .item-total-price { text-align: center; width: 100%; }
+    .remove-btn { position: absolute; top: 15px; right: 15px; margin: 0; }
+
+    .cart-summary-card { max-width: 100%; }
+    .legal-info-grid { grid-template-columns: 1fr; }
+}
