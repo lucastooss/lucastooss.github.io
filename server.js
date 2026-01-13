@@ -1,7 +1,7 @@
 require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const express = require('express');
-const axios = require('axios');
+const axios = require('axios')(process.env.FORMSPREE_URL);
 const cors = require('cors');
 const app = express();
 
