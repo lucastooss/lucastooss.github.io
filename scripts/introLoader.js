@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Wir prüfen, ob wir auf der Startseite sind
         if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
             // Sofortige Weiterleitung, bevor das Bild ausgeblendet wird
-            window.location.href = 'home/home.html';
+            window.location.href = 'home/';
         } else {
             // Normales Ausblenden auf anderen Seiten
             preloader.style.opacity = '0';

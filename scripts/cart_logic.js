@@ -14,15 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
 function renderCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const container = document.getElementById('cart-items-container');
+    const summaryCard = document.querySelector('.cart-summary-card'); // Die Summary Card finden
     let subtotal = 0;
 
     if (!container) return;
 
     if (cart.length === 0) {
         container.innerHTML = "<p style='text-align:center; padding:50px; font-family:Poppins, sans-serif;'>Dein Warenkorb ist zurzeit leer.</p>";
+        if (summaryCard) summaryCard.style.display = 'none'; // Verstecken, wenn leer
         updateTotals(0);
         return;
     }
+
+    // Wenn Artikel vorhanden sind, Card wieder anzeigen
+    if (summaryCard) summaryCard.style.display = 'block'; 
 
     container.innerHTML = '';
     cart.forEach((item, index) => {
