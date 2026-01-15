@@ -41,7 +41,7 @@
                         <label>Farbe wählen:</label>
                         <div class="color-options">
                             <label class="color-radio">
-                                <input type="radio" name="color" value="Mint - Weiss" checked>
+                                <input type="radio" name="color" value="Mint-Weiss" checked>
                                 <span class="checkmark white"></span> Mint - weiss
                             </label>
                             <label class="color-radio">
@@ -117,9 +117,9 @@ Das Necessaire ist in Braun und Mintgrün erhältlich. Auf der Vorderseite finde
             const color = document.querySelector('input[name="color"]:checked').value;
             
             
-            let priceId = (color === 'Weiss') 
-                ? 'price_1SoO2XIDfb6h5bqJ7g0odJr6'
-                : 'price_1SoO2oIDfb6h5bqJZY5jUXsm'; 
+            let priceId = (color === 'Mint-Weiss') 
+                ? 'price_1Spun6HO3805tqvux29s5jZ3'
+                : 'price_1Spt8QHO3805tqvum7NcprDu'; 
 
             const product = {
                 id: priceId, 
@@ -127,7 +127,7 @@ Das Necessaire ist in Braun und Mintgrün erhältlich. Auf der Vorderseite finde
                 price: 20.00,
                 color: color,
                 quantity: 1,
-                image: '../img/produkt.jpeg' 
+                image: '../img/produktbildNeu.jpeg' 
             };
 
             let cart = JSON.parse(localStorage.getItem('cart')) || [];

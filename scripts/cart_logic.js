@@ -1,6 +1,21 @@
-const stripe = Stripe('pk_test_51SoAsyIDfb6h5bqJKi8CCMimTIRafCflthIm6UVS6o7TNF97yLtt14aBkHFUE3htT0LQq3SnPuiDQEjaHxRlXRDi00VcigeJek');
+const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:3000'
+    : 'https://lucastooss-github-io.onrender.com';
+
+let stripe;
+
+async function initializeStripe() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/config`);
+        const { publishableKey } = await response.json();
+        stripe = Stripe(publishableKey);
+    } catch (error) {
+        console.error("Stripe konnte nicht initialisiert werden:", error);
+    }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
+    initializeStripe();
     renderCart(); 
     
     const checkoutBtn = document.querySelector('.btn-checkout');
@@ -14,19 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
 function renderCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const container = document.getElementById('cart-items-container');
-    const summaryCard = document.querySelector('.cart-summary-card'); // Die Summary Card finden
+    const summaryCard = document.querySelector('.cart-summary-card');
     let subtotal = 0;
 
     if (!container) return;
 
     if (cart.length === 0) {
         container.innerHTML = "<p style='text-align:center; padding:50px; font-family:Poppins, sans-serif;'>Dein Warenkorb ist zurzeit leer.</p>";
-        if (summaryCard) summaryCard.style.display = 'none'; // Verstecken, wenn leer
+        if (summaryCard) summaryCard.style.display = 'none';
         updateTotals(0);
         return;
     }
 
-    // Wenn Artikel vorhanden sind, Card wieder anzeigen
     if (summaryCard) summaryCard.style.display = 'block'; 
 
     container.innerHTML = '';
@@ -75,7 +89,7 @@ function removeItem(index) {
 }
 
 function updateTotals(subtotal) {
-    const shipping = subtotal > 0 ? 10.00 : 0;
+    const shipping =  10;
     const total = subtotal + shipping;
     
     const subtotalElement = document.getElementById('subtotal');
@@ -89,19 +103,13 @@ async function startStripeCheckout() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     if (cart.length === 0) return alert("Warenkorb leer!");
 
-  
-    const itemsWithShipping = [...cart, {
-        id: 'price_1SoOm0IDfb6h5bqJje5fgPUm', 
-        quantity: 1
-    }];
-
     try {
-        const response = await fetch('https://lucastooss-github-io.onrender.com/create-checkout-session', {
+        const response = await fetch(`${API_BASE_URL}/create-checkout-session`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ items: itemsWithShipping }),
+            body: JSON.stringify({ items: cart }),
         });
 
         const session = await response.json();

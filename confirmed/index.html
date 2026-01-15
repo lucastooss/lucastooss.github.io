@@ -1,26 +1,59 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Bestätigung - Defined by LAZJ</title>
-        <link rel="icon" type="image/jpeg" href="../img/logo.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zahlung erfolgreich - Defined by LAZJ</title>
+    <link rel="icon" type="image/jpeg" href="../img/logo.jpg">
+    <link rel="stylesheet" href="../intro/intro.css">
+    <link rel="stylesheet" href="confirmed.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="site-wrapper">
+<body class="site-wrapper" onload="clearCart()">
+    <div id="header-placeholder"></div>
+
     <main class="main-content">
-        <section class="confirmation-wrapper">
-            <div class="confirmation-card">
-                <h2>Zahlung erfolgreich!</h2>
-                <p>Vielen Dank für Ihre Bestellung. Wir werden Ihre LAZJ Bag so schnell wie möglich versenden.</p>
-                <a href="../home/" class="btn-return">Zurück zur Startseite</a>
+        <section class="success-container">
+            <div class="success-card">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 6L9 17L4 12" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <h1 class="success-title">Vielen Dank für deine Bestellung!</h1>
+                <p class="success-message">Deine Zahlung war erfolgreich. Wir bereiten dein Paket nun mit viel Liebe vor.</p>
+                
+                <div class="order-info-box">
+                    <p>Eine Bestätigungsmail mit allen Details ist auf dem Weg zu dir.</p>
+                </div>
+
+                <div class="next-steps">
+                    <h3>Wie geht es weiter?</h3>
+                    <ul class="steps-list">
+                        <li><span>1</span> Dein Necessaire wird in Handarbeit verpackt.</li>
+                        <li><span>2</span> Der Versand erfolgt klimaneutral in 2-10 Werktagen.</li>
+                        <li><span>3</span> Du erhältst eine Benachrichtigung, sobald es verschickt wurde.</li>
+                    </ul>
+                </div>
+
+                <div class="button-group">
+                    <a href="../home/" class="btn-primary">Zurück zur Startseite</a>
+                    <a href="https://www.instagram.com/defined_by_lazj/" target="_blank" class="btn-secondary">Folge uns auf Instagram</a>
+                </div>
             </div>
         </section>
     </main>
+
     <div id="footer-placeholder"></div>
 
     <script src="../scripts/loadHeader.js"></script>
     <script src="../scripts/loadFooter.js"></script>
     <script>
-        // WICHTIG: Warenkorb leeren
-        localStorage.removeItem('cart');
+        // Warenkorb nach erfolgreichem Kauf leeren
+        function clearCart() {
+            localStorage.removeItem('cart');
+        }
     </script>
 </body>
 </html>
