@@ -16,12 +16,21 @@
     <main class="main-content">
         <section class="product-container">
             <div class="product-card">
-                <div class="product-image-slider">
+                              <div class="product-image-slider">
+                    <button class="slider-arrow prev" onclick="changeSlide(-1)" aria-label="Vorheriges Bild">&#10094;</button>
+                    
 
                     <div class="slides-container">
                         <img src="../img/produktbildNeu.jpeg" class="product-slide active" alt="LAZJ Bag">
+                        <img src="../img/produktBraun.jpeg" class="product-slide" alt="LAZJ Bag Innenansicht mit Spiegel">
                     </div>
+
+                    <button class="slider-arrow next" onclick="changeSlide(1)" aria-label="Nächstes Bild">&#10095;</button>
                     
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="currentSlide(0)"></span>
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                    </div>
  
                 </div>
                 
@@ -109,18 +118,32 @@ Das Necessaire ist in Braun und Mintgrün erhältlich. Auf der Vorderseite finde
         function addToCart() {
             const color = document.querySelector('input[name="color"]:checked').value;
             
-            
-            let priceId = (color === 'Mint-Weiss') 
-                ? 'price_1Spun6HO3805tqvux29s5jZ3'
-                : 'price_1Spt8QHO3805tqvum7NcprDu'; 
+            const mintWhiteID = 'price_1Spun6HO3805tqvux29s5jZ3';
+            const brownID = 'price_1Spt8QHO3805tqvum7NcprDu';
+
+            const mintWhiteImage = '../img/produktbildNeu.jpeg';
+            const brownImage = '../img/produktBraun.jpeg';
+
+            const colorConfigs = {
+            'Mint-Weiss': {
+                priceId: mintWhiteID,
+                image: mintWhiteImage
+            },
+            'Braun': {
+                priceId: brownID,
+                image: brownImage
+            }
+            };
+
+            const config = colorConfigs[color];
 
             const product = {
-                id: priceId, 
+                id: config.priceId, 
                 name: 'LAZJ Bag',
                 price: 20.00,
                 color: color,
                 quantity: 1,
-                image: '../img/produktbildNeu.jpeg' 
+                image: config.image 
             };
 
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
