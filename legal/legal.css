@@ -24,22 +24,40 @@ html {
 .legal-grid {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
 }
 
 .legal-card {
     background: #ffffff;
-    padding: 50px;
     border-radius: 12px;
     border: 1px solid #eeeeee;
     box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-    scroll-margin-top: 100px;
+    scroll-margin-top: 120px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.legal-card summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 35px 45px;
+    outline: none;
+}
+
+.legal-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.summary-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .legal-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 20px;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
 }
 
 .legal-icon svg {
@@ -50,85 +68,46 @@ html {
 
 .legal-card h3 {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.8rem;
-    margin-bottom: 25px;
-    border-bottom: 2px solid rgb(254, 249, 243);
-    padding-bottom: 10px;
-    display: inline-block;
+    font-size: 1.5rem;
+    margin: 0;
+    flex-grow: 1;
+    color: #1a1a1a;
+    font-weight: 500;
 }
 
+.accordion-arrow {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.accordion-arrow::before, .accordion-arrow::after {
+    content: '';
+    position: absolute;
+    background-color: #1a1a1a;
+    transition: all 0.3s ease;
+}
+
+.accordion-arrow::before { width: 2px; height: 100%; left: 50%; transform: translateX(-50%); }
+.accordion-arrow::after { width: 100%; height: 2px; top: 50%; transform: translateY(-50%); }
+
+details[open] .accordion-arrow { transform: rotate(180deg); }
+details[open] .accordion-arrow::before { opacity: 0; }
+
 .legal-content-text {
+    padding: 0 45px 45px 45px;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     line-height: 1.8;
     color: #444;
 }
 
-/* Formular Styles */
-.contact-form-wrapper {
-    margin-top: 40px;
-}
-
-.legal-contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 25px;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.legal-contact-form input,
-.legal-contact-form textarea {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #eeeeee;
-    border-radius: 4px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    transition: border-color 0.3s ease;
-}
-
-.legal-contact-form input:focus,
-.legal-contact-form textarea:focus {
-    outline: none;
-    border-color: #1a1a1a;
-}
-
-.btn-submit-form {
-    align-self: flex-start;
-    padding: 15px 40px;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    border: 1px solid #1a1a1a;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-submit-form:hover {
-    background-color: transparent;
-    color: #1a1a1a;
-}
-
-/* Bestehende Grid & Block Styles */
 .impressum-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     margin-bottom: 20px;
-}
-
-.impressum-block {
-    margin-bottom: 25px;
-    line-height: 1.6;
 }
 
 .impressum-block h4 {
@@ -137,14 +116,6 @@ html {
     letter-spacing: 2px;
     color: #999;
     margin-bottom: 12px;
-    font-weight: 600;
-}
-
-.legal-link {
-    color: #1a1a1a;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
 }
 
 .info-box {
@@ -154,9 +125,87 @@ html {
     border-left: 2px solid #1a1a1a;
 }
 
+.legal-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.legal-contact-form input, .legal-contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+}
+
+.btn-submit-form {
+    padding: 15px 40px;
+    background-color: #1a1a1a;
+    color: white;
+    border: 1px solid #1a1a1a;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
-    .legal-card { padding: 30px 20px; }
-    .form-row { grid-template-columns: 1fr; }
-    .impressum-grid { grid-template-columns: 1fr; }
-    .btn-submit-form { width: 100%; }
+    .legal-page {
+        /* Erhöhter Abstand oben, damit der Header nichts überdeckt */
+        padding: 120px 15px 40px 15px; 
+    }
+
+    .legal-title {
+        font-size: 2rem; 
+        margin-bottom: 30px;
+    }
+
+    .legal-grid {
+        gap: 20px; 
+    }
+
+    /* Entferne das zusätzliche Padding der Card selbst, damit es nicht doppelt wirkt */
+    .legal-card {
+        padding: 0; 
+    }
+
+    .legal-card summary {
+        padding: 20px 15px;
+    }
+
+    .legal-card h3 {
+        font-size: 1.2rem; 
+    }
+
+    .legal-content-text {
+        padding: 0 15px 25px 15px;
+        font-size: 0.95rem;
+    }
+
+    .impressum-grid, .form-row {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    .legal-contact-form input, 
+    .legal-contact-form textarea {
+        font-size: 16px; 
+        padding: 12px;
+    }
+
+    .btn-submit-form {
+        width: 100%; 
+        padding: 18px;
+        font-size: 0.9rem;
+    }
+
+    .info-box {
+        padding: 15px; 
+    }
 }

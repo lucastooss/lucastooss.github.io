@@ -163,7 +163,7 @@
     position: relative;
 }
 
-.white { background-color: #ffffff; border: 1px solid #ccc; }
+.white { background-color: #ecf2ec; border: 1px solid #ccc; }
 .brown { background-color: #8B4513; }
 
 .color-radio input:checked + .checkmark {

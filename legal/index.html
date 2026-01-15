@@ -2,9 +2,9 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Rechtliches - Defined by LAZJ</title>
-        <link rel="icon" type="image/jpeg" href="../img/logo.jpg">
+    <link rel="icon" type="image/jpeg" href="../img/logo.jpg">
     <link rel="stylesheet" href="../intro/intro.css"> 
     <link rel="stylesheet" href="legal.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -19,12 +19,16 @@
             
             <div class="legal-grid">
                 
-                                <div id="impressum" class="legal-card">
-                    <div class="legal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z"/></svg>
-                    </div>
-                    <h3>Impressum & Kontakt</h3>
-                    
+                <details id="impressum" class="legal-card">
+                    <summary>
+                        <div class="summary-header">
+                            <div class="legal-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z"/></svg>
+                            </div>
+                            <h3>Impressum & Kontakt</h3>
+                            <span class="accordion-arrow"></span>
+                        </div>
+                    </summary>
                     <div class="legal-content-text">
                         <div class="impressum-grid">
                             <section class="impressum-block">
@@ -49,15 +53,15 @@
                         <div class="contact-form-wrapper info-box">
                             <h4>Kontaktieren Sie uns</h4>
                             <p>Haben Sie Fragen zu unseren Produkten? Schreiben Sie uns direkt hier.</p>
-<form action="https://formspree.io/f/xwvvkywk" method="POST" class="legal-contact-form">
-        <input type="hidden" name="_next" value="http://127.0.0.1:5500/confirmed/confirmed.html">
-        <div class="form-row">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="email" placeholder="E-Mail" required>
-    </div>
-    <textarea name="message" placeholder="Ihre Nachricht" rows="5" required></textarea>
-    <button href="../confirmed/" type="submit" class="btn-submit-form">Absenden</button>
-    </form>
+                            <form action="https://formspree.io/f/xwvvkywk" method="POST" class="legal-contact-form">
+                                <input type="hidden" name="_next" value="http://127.0.0.1:5500/confirmed/confirmed.html">
+                                <div class="form-row">
+                                    <input type="text" name="name" placeholder="Name" required>
+                                    <input type="email" name="email" placeholder="E-Mail" required>
+                                </div>
+                                <textarea name="message" placeholder="Ihre Nachricht" rows="5" required></textarea>
+                                <button type="submit" class="btn-submit-form">Absenden</button>
+                            </form>
                         </div>
 
                         <section class="impressum-block info-box" style="margin-top: 30px;">
@@ -67,12 +71,18 @@
                             </p>
                         </section>
                     </div>
-                </div>
-                <div id="agb" class="legal-card">
-                    <div class="legal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M480 576L192 576C139 576 96 533 96 480L96 160C96 107 139 64 192 64L496 64C522.5 64 544 85.5 544 112L544 400C544 420.9 530.6 438.7 512 445.3L512 512C529.7 512 544 526.3 544 544C544 561.7 529.7 576 512 576L480 576zM192 448C174.3 448 160 462.3 160 480C160 497.7 174.3 512 192 512L448 512L448 448L192 448zM224 216C224 229.3 234.7 240 248 240L424 240C437.3 240 448 229.3 448 216C448 202.7 437.3 192 424 192L248 192C234.7 192 224 202.7 224 216zM248 288C234.7 288 224 298.7 224 312C224 325.3 234.7 336 248 336L424 336C437.3 336 448 312 448 312C448 288.7 437.3 288 424 288L248 288z"/></svg>
-                    </div>
-                    <h3>Allgemeine Geschäftsbedingungen</h3>
+                </details>
+
+                <details id="agb" class="legal-card">
+                    <summary>
+                        <div class="summary-header">
+                            <div class="legal-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M480 576L192 576C139 576 96 533 96 480L96 160C96 107 139 64 192 64L496 64C522.5 64 544 85.5 544 112L544 400C544 420.9 530.6 438.7 512 445.3L512 512C529.7 512 544 526.3 544 544C544 561.7 529.7 576 512 576L480 576zM192 448C174.3 448 160 462.3 160 480C160 497.7 174.3 512 192 512L448 512L448 448L192 448zM224 216C224 229.3 234.7 240 248 240L424 240C437.3 240 448 229.3 448 216C448 202.7 437.3 192 424 192L248 192C234.7 192 224 202.7 224 216zM248 288C234.7 288 224 298.7 224 312C224 325.3 234.7 336 248 336L424 336C437.3 336 448 312 448 312C448 288.7 437.3 288 424 288L248 288z"/></svg>
+                            </div>
+                            <h3>Allgemeine Geschäftsbedingungen</h3>
+                            <span class="accordion-arrow"></span>
+                        </div>
+                    </summary>
                     <div class="legal-content-text">
                         <div class="impressum-grid">
                             <section class="impressum-block">
@@ -118,13 +128,18 @@
                             </section>
                         </div>
                     </div>
-                </div>
+                </details>
 
-                <div id="datenschutz" class="legal-card">
-                    <div class="legal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 64C324.6 64 329.2 65 333.4 66.9L521.8 146.8C543.8 156.1 560.2 177.8 560.1 204C559.6 303.2 518.8 484.7 346.5 567.2C329.8 575.2 310.4 575.2 293.7 567.2C121.3 484.7 80.6 303.2 80.1 204C80 177.8 96.4 156.1 118.4 146.8L306.7 66.9C310.9 65 315.4 64 320 64z"/></svg>
-                    </div>
-                    <h3>Datenschutzerklärung</h3>
+                <details id="datenschutz" class="legal-card">
+                    <summary>
+                        <div class="summary-header">
+                            <div class="legal-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 64C324.6 64 329.2 65 333.4 66.9L521.8 146.8C543.8 156.1 560.2 177.8 560.1 204C559.6 303.2 518.8 484.7 346.5 567.2C329.8 575.2 310.4 575.2 293.7 567.2C121.3 484.7 80.6 303.2 80.1 204C80 177.8 96.4 156.1 118.4 146.8L306.7 66.9C310.9 65 315.4 64 320 64z"/></svg>
+                            </div>
+                            <h3>Datenschutzerklärung</h3>
+                            <span class="accordion-arrow"></span>
+                        </div>
+                    </summary>
                     <div class="legal-content-text">
                         <div class="impressum-grid">
                             <section class="impressum-block">
@@ -154,13 +169,18 @@
                             <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten sowie ein Recht auf Berichtigung oder Löschung dieser Daten. Kontaktieren Sie uns hierzu unter <a href="mailto:contact@lazj.ch" class="legal-link">contact@lazj.ch</a>.</p>
                         </section>
                     </div>
-                </div>
+                </details>
 
-                <div id="widerruf" class="legal-card">
-                    <div class="legal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M500.7 138.7L512 149.4L512 96C512 78.3 526.3 64 544 64C561.7 64 576 78.3 576 96L576 224C576 241.7 561.7 256 544 256L416 256C398.3 256 384 241.7 384 224C384 206.3 398.3 192 416 192L463.9 192L456.3 184.8C456.1 184.6 455.9 184.4 455.7 184.2C380.7 109.2 259.2 109.2 184.2 184.2C109.2 259.2 109.2 380.7 184.2 455.7C259.2 530.7 380.7 530.7 455.7 455.7C463.9 447.5 471.2 438.8 477.6 429.6C487.7 415.1 507.7 411.6 522.2 421.7C536.7 431.8 540.2 451.8 530.1 466.3C521.6 478.5 511.9 490.1 501 501C401 601 238.9 601 139 501C39.1 401 39 239 139 139C238.9 39.1 400.7 39 500.7 138.7z"/></svg>
-                    </div>
-                    <h3>Widerrufsrecht</h3>
+                <details id="widerruf" class="legal-card">
+                    <summary>
+                        <div class="summary-header">
+                            <div class="legal-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M500.7 138.7L512 149.4L512 96C512 78.3 526.3 64 544 64C561.7 64 576 78.3 576 96L576 224C576 241.7 561.7 256 544 256L416 256C398.3 256 384 241.7 384 224C384 206.3 398.3 192 416 192L463.9 192L456.3 184.8C456.1 184.6 455.9 184.4 455.7 184.2C380.7 109.2 259.2 109.2 184.2 184.2C109.2 259.2 109.2 380.7 184.2 455.7C259.2 530.7 380.7 530.7 455.7 455.7C463.9 447.5 471.2 438.8 477.6 429.6C487.7 415.1 507.7 411.6 522.2 421.7C536.7 431.8 540.2 451.8 530.1 466.3C521.6 478.5 511.9 490.1 501 501C401 601 238.9 601 139 501C39.1 401 39 239 139 139C238.9 39.1 400.7 39 500.7 138.7z"/></svg>
+                            </div>
+                            <h3>Widerrufsrecht</h3>
+                            <span class="accordion-arrow"></span>
+                        </div>
+                    </summary>
                     <div class="legal-content-text">
                         <div class="impressum-grid">
                             <section class="impressum-block">
@@ -189,12 +209,33 @@
                             <p>Um Ihr Widerrufsrecht auszuüben, informieren Sie uns bitte per E-Mail an <a href="mailto:contact@lazj.ch" class="legal-link">contact@lazj.ch</a> über Ihren Entschluss. Wir werden Ihnen anschliessend die weiteren Schritte mitteilen.</p>
                         </section>
                     </div>
-                </div>
+                </details>
+            </div>
+        </section>
     </main>
 
     <div id="footer-placeholder"></div>
 
     <script src="../scripts/loadHeader.js"></script>
     <script src="../scripts/loadFooter.js"></script>
+
+    <script>
+        function handleUrlHash() {
+            const hash = window.location.hash;
+            if (hash) {
+                const targetId = hash.substring(1);
+                const detailsElement = document.getElementById(targetId);
+                if (detailsElement && detailsElement.tagName === 'DETAILS') {
+                    document.querySelectorAll('details.legal-card').forEach(el => el.open = false);
+                    detailsElement.open = true;
+                    setTimeout(() => {
+                        detailsElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 300);
+                }
+            }
+        }
+        window.addEventListener('load', handleUrlHash);
+        window.addEventListener('hashchange', handleUrlHash);
+    </script>
 </body>
 </html>
