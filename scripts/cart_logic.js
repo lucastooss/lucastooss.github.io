@@ -103,6 +103,13 @@ async function startStripeCheckout() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     if (cart.length === 0) return alert("Warenkorb leer!");
 
+    const checkoutBtn = document.querySelector('.btn-checkout');
+    
+    if (checkoutBtn) {
+        checkoutBtn.disabled = true;
+        checkoutBtn.classList.add('is-loading');
+    }
+
     try {
         const response = await fetch(`${API_BASE_URL}/create-checkout-session`, {
             method: 'POST',
@@ -112,15 +119,28 @@ async function startStripeCheckout() {
             body: JSON.stringify({ items: cart }),
         });
 
+        if (!response.ok) {
+            throw new Error('Server-Antwort war nicht ok');
+        }
+
         const session = await response.json();
         
         if (session.url) {
             window.location.href = session.url; 
         } else {
             alert("Fehler beim Erstellen der Session.");
+            resetCheckoutButton(checkoutBtn);
         }
     } catch (error) {
         console.error("Fehler:", error);
-        alert("Server nicht erreichbar.");
+        alert("Der Server benötigt einen Moment zum Starten (Gratis-Hoster). Bitte versuche es in wenigen Sekunden noch einmal.");
+        resetCheckoutButton(checkoutBtn);
+    }
+}
+
+function resetCheckoutButton(btn) {
+    if (btn) {
+        btn.disabled = false;
+        btn.classList.remove('is-loading');
     }
 }
