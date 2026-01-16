@@ -115,6 +115,20 @@ Das Necessaire ist in Braun und Mintgrün erhältlich. Auf der Vorderseite finde
             dots[slideIndex].classList.add('active');
         }
 
+        document.addEventListener('DOMContentLoaded', function() {
+    const colorRadios = document.querySelectorAll('input[name="color"]');
+    
+    colorRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            if (this.value === 'Mint-Weiss') {
+                currentSlide(0); 
+            } else if (this.value === 'Braun') {
+                currentSlide(1); 
+            }
+        });
+    });
+});
+
         function addToCart() {
             const color = document.querySelector('input[name="color"]:checked').value;
             
